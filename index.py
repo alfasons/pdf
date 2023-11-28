@@ -1,11 +1,14 @@
 import subprocess
 
-def html_to_pdf(html_path, output_path):
-    command = f"wkhtmltopdf {html_path} {output_path}"
+def pdf_to_html(pdf_path, html_output_path):
+    command = f"wkhtmltopdf {pdf_path} {html_output_path}"
     subprocess.run(command, shell=True)
 
 # Example usage
-html_path = "file:///srv/pdf/files/kips.pdf"
-pdf_output_path = "/srv/pdf/files/JS3.pdf"
+pdf_path = "/srv/pdf/files/JS3.pdf"
+html_output_path = "/srv/pdf/files/kips.html"
 
-html_to_pdf(html_path, pdf_output_path)
+pdf_to_html(pdf_path, html_output_path)
+
+
+
