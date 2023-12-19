@@ -1,7 +1,7 @@
 import subprocess
 
-pdf_path = 'files/testk.pdf'
-html_path = 'files/kips.html'
+pdf_path = '/srv/offers/console/runtime/templates/UP_15122023/1702637853_bmRZIUYP.pdf'
+html_path = 'files/kips2.html'
 
 def convert_pdf_to_html(pdf_path, output_html_path):
     try:
