@@ -1,17 +1,14 @@
 import subprocess
 
-def convert_pdf_to_html(pdf_path, output_path):
+pdf_path = '/srv/offers/console/runtime/templates/UP_15122023/1702637853_bmRZIUYP.pdf'
+html_path = '/srv/offers/backend/web/pdf/contract_kips.html'
+
+def convert_pdf_to_html(pdf_path, output_html_path):
     try:
-        subprocess.run(['pdftohtml', '-noframes', '-enc', 'UTF-8', '-c', '-q', pdf_path, output_path])
-        print(f'Successfully converted {pdf_path} to {output_path}')
-    except Exception as e:
+        subprocess.run(['pdf2htmlEX', pdf_path, '--embed-image', '0', '--embed-css', '0', '--embed-font', '0', '--embed-javascript', '0', output_html_path], check=True)
+        print(f'Successfully converted {pdf_path} to {output_html_path}')
+    except subprocess.CalledProcessError as e:
         print(f'Error converting {pdf_path} to HTML: {e}')
 
-if __name__ == '__main__':
-    pdf_file_path = '/Users/mac/Desktop/k2.pdf'
-    html_output_path = '/Users/mac/apps/pdf/k4.html'
-
-    convert_pdf_to_html(pdf_file_path, html_output_path)
- 
-
- 
+# Replace 'input.pdf' and 'output.html' with your PDF and desired HTML file paths
+convert_pdf_to_html(pdf_path, html_path)
